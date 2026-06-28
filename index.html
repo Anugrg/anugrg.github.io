@@ -1,64 +1,531 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anubinda Gurung — Software Engineer specializing in data pipelines, analytics infrastructure, and AI integration.">
+    <title>Anubinda Gurung — Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --text: #1a1a2e;
+            --text-muted: #5c5c6f;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e8e8ed;
+            --tag-bg: #f0f4ff;
+            --tag-text: #1e40af;
+        }
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Header */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .site-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .site-name:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Main layout */
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin: 0 0 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Hero */
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.35rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin: 0 0 1rem;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-row a {
+            color: var(--text-muted);
+        }
+
+        .contact-row a:hover {
+            color: var(--accent);
+        }
+
+        .contact-row .sep {
+            display: none;
+        }
+
+        .summary {
+            font-size: 1.05rem;
+            color: var(--text);
+            margin: 0;
+        }
+
+        /* Skills */
+        .skill-group {
+            margin-bottom: 1rem;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            border-radius: 4px;
+        }
+
+        /* Experience & Education */
+        .entry {
+            margin-bottom: 2rem;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.25rem 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .entry-org {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .entry-role {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .entry-meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .entry ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        .entry li {
+            margin-bottom: 0.45rem;
+            color: var(--text);
+        }
+
+        .entry li:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry li strong {
+            font-weight: 600;
+        }
+
+        /* Publications */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pub-list li {
+            margin-bottom: 1rem;
+            padding-left: 0;
+        }
+
+        .pub-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .pub-journal {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Languages */
+        .lang-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 2rem;
+        }
+
+        .lang-list li {
+            font-size: 0.95rem;
+        }
+
+        .lang-list strong {
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        /* Print */
+        @media print {
+            header {
+                position: static;
+            }
+
+            nav {
+                display: none;
+            }
+
+            main {
+                padding-top: 1rem;
+            }
+
+            a {
+                color: var(--text);
+            }
+
+            .tag {
+                border: 1px solid var(--border);
+                background: none;
+                color: var(--text);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.65rem;
+            }
+
+            .entry-header {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-<header >
 
-    <nav class="navbar bg-dark">
-        <h3 class="text-white">
-           It's me, Anubinda &#128406
-        </h3>
-        <div class="flex my-2 bg">
-
-
-            <a href="https://www.linkedin.com/in/anubinda-gurung-2b2960b5/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                </svg>
-                
-            </a>
-        </div>
-    </nav>
-
+<header>
+    <div class="header-inner">
+        <a href="#" class="site-name">Anubinda Gurung</a>
+        <nav>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#publications">Publications</a>
+            
+        </nav>
+    </div>
 </header>
 
-<div class="container pt-5">
-    <div class="row">
-        <div class="col text-justify">
-            Hi, I am Anubinda Gurung a professional software engineer with experience building variety of applications
-            for domains ranging from machine learning, meteorology to automation. <br>
-            My passion lies in using software to solve problems in diverse fields. <br>
-            
-            
-            <br>
+<main>
 
+    <section class="hero" id="about">
+        <h1>Anubinda Gurung</h1>
+        <p class="title">Software Engineer</p>
+        <div class="contact-row">
+            <a href="mailto:grg.jomle@gmail.com">grg.jomle@gmail.com</a>
+            <span class="sep">·</span>
+
+            <a href="https://www.linkedin.com/in/anubinda-gurung-2b2960b5/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="sep">·</span>
+            <a href="https://medium.com/@anubindagrg" target="_blank" rel="noopener noreferrer">Medium</a>
         </div>
-    </div>
-</div>
+        <p class="summary">
+            I am a Software Engineer specializing in data pipelines, analytics infrastructure, and AI integration.
+            Currently, I build custom MCP servers and agentic workflows to power LLM interfaces and automated analysis. 
+            My background spans:
+             <ul>
+                <li>Data Engineering: Optimizing end-to-end data provisioning and analytics systems.</li>
+                <li>Applied ML Research: Published ML research on fall detection.</li>
+                <li>Industrial Automation: Architected and developed part tracking, safety monitoring, roll paper stock handling and warehouse management systems.</li>
+                <li>Weather Data visualization and Analytics: Full stack development of a weather data platform to empower meteorologists with analytical, verification, and visualization capabilities.
+                </li> 
+            </ul>
+        </p>
+    </section>
 
-<div>
-        <div class="row">
-        <div class="col text-justify">
-            In MS SQL, if you created a login user account and you want to connect to the database either programmatically or through sql studio, you have to configure the server
-            instance's security to allow both sql and windows authentication. Then, in the login user entity's securables settings, add server instance and grant connect sql permission. 
-            From user mapping setting in login user entity, for desired database, tick the checkboxes for different database membership roles. Finally, restart the ms sql server. 
-            
-            <br>
-
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill-group">
+            <div class="skill-label">Programming Languages</div>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">SQL</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">C#</span>
+            </div>
         </div>
-    </div>
-</div>
-  
+        <div class="skill-group">
+            <div class="skill-label">Technologies</div>
+            <div class="tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">Django</span>
+                <span class="tag">FastMCP</span>
+                <span class="tag">Git</span>
+                <span class="tag">Linux</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">MS SQL</span>
+                <span class="tag">Redis</span>
+                <span class="tag">Podman</span>
+                <span class="tag">Docker</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Azure</span>
+                <span class="tag">Kubernetes</span>
+                <span class="tag">TailwindCSS</span>
+                <span class="tag">Bootstrap</span>
+                <span class="tag">jQuery</span>
+                <span class="tag">PySide6</span>
+                <span class="tag">WinForms</span>
+                <span class="tag">scikit-learn</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">Spotfire</span>
+                <span class="tag">LangGraph/LangChain</span>
+                <span class="tag">Polars</span>
+                <span class="tag">Pandas</span>
+            </div>
+        </div>
+    </section>
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-org">Western Digital</span>
+            </div>
+            <div class="entry-role">Software Engineer (Contract)</div>
+            <div class="entry-meta">Bangkok, Thailand · July 2025 – Present</div>
+            <ul>
+                <li><strong>AI Integration:</strong> Designed and developed Model Context Protocol (MCP) servers using FastMCP to enable agentic workflow integrations with internal API servers. Developed a POC SQL optimizer agent to validate feasibility as a feature within an internal system.</li>
+                <li><strong>System Optimization:</strong> Audited a data processing engine to reduce memory overhead from 8GB to 3.5GB during active workload, eliminating OOM crashes in K8 pods and maintaining 99.9% uptime for downstream Spotfire dashboard.</li>
+                <li><strong>Data Delivery Speedup:</strong> Accelerated file processing speeds by 67% (from 15 to under 5 minutes) and cut end-to-end API latency by up to 80%, supporting high-throughput ingestion needed for large-scale data systems.</li>
+                <li><strong>Data Analytics:</strong> Developed and maintained SQL queries to surface data as needed by stakeholders from various tables to provide access to core manufacturing metrics to identify root causes of failures.</li>
+                <li><strong>Machine Learning:</strong> Performed a comprehensive exploratory ML feasibility study to analyze diverse feature sets to deliver data-backed evidence regarding predictability limitations to stakeholders.</li>
+            </ul>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-org">Fersmek Co., Ltd.</span>
+            </div>
+            <div class="entry-role">Software Engineer</div>
+            <div class="entry-meta">Bangkok, Thailand · March 2024 – June 2025</div>
+            <ul>
+                <li><strong>Warehouse Management System:</strong> Served as the sole developer for an internal warehouse management web app. Managed the full development lifecycle, from gathering user requirements to designing and implementing new features, while utilizing test code and user feedback to guide iterative improvements.</li>
+                <li><strong>Real-Time Safety Monitoring:</strong> Built a web application to track safety hooks and helmets in real time. Integrated live video streaming from helmet cameras and implemented dynamic geofencing, allowing supervisors to draw polygon boundaries and receive automated alerts when devices exited designated safe zones. Conducted training session and user acceptance testing.</li>
+                <li><strong>Industrial Automation:</strong> Developed and maintained four C# WinForms desktop apps that automated roll paper manufacturing by interfacing with sensors, PLCs, and databases. Implemented features for roll paper measurements, printing barcode labels and controlling material movement. Conducted training session and user acceptance testing.</li>
+                <li><strong>Technical Support and Troubleshooting:</strong> Provided ongoing support for industrial desktop applications, diagnosing and resolving issues related to hardware communication and data exchange to minimize production downtime.</li>
+                <li><strong>ERP Implementation:</strong> Led the integration of ERPNext to consolidate business operations. Customized the platform using client-side and server-side scripting, conducted user training sessions, user acceptance testing and managed the deployment to ensure a smooth transition and adoption across the organization.</li>
+                <li><strong>Manufacturing Line Tracking:</strong> Architected a multi-threaded desktop GUI using PySide6 to manage a part manufacturing line. Engineered a custom TCP message protocol to facilitate real-time communication with PLCs, integrated a QR code decoding pipeline, and automated the generation of Excel reports for part traceability.</li>
+            </ul>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-org">RIMES</span>
+            </div>
+            <div class="entry-role">Full Stack Software Engineer</div>
+            <div class="entry-meta">Pathum Thani, Thailand · June 2021 – January 2024</div>
+            <ul>
+                <li><strong>Full-Stack Development:</strong> Designed and developed an interactive web based meteorological data exchange platform to empower meteorologists with analytical, verification, and visualization capabilities.</li>
+                <li><strong>Data Engineering and Automation:</strong> Developed Python scripts to automate the processing and conversion of meteorological data from GRIB, NetCDF, and Excel formats, ensuring seamless integration with web applications.</li>
+                <li><strong>API Library Development:</strong> Created a Python client library with CLI to facilitate programmatic access to the internal data platform, supported by comprehensive user documentation to drive adoption.</li>
+                <li><strong>Core Feature Implementation:</strong> Developed weather data verification, real-time lightning radar animations with alerts, user invite based account creation, authentication, forecast graphic generation and ad-hoc forecast data subsetting features.</li>
+                <li><strong>Alerting and Monitoring:</strong> Implemented an automated ETL process to acquire observation data and trigger lightning email alerts to subscribers, significantly improving warning dissemination speed.</li>
+                <li><strong>Server Administration:</strong> Managed the full deployment lifecycle of Django applications on Linux servers using Nginx, including server maintenance and configuration.</li>
+                <li><strong>System Reliability:</strong> Scheduled and maintained cron jobs with Bash scripts to monitor daily forecast model outputs, ensuring data integrity and system availability.</li>
+            </ul>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <span class="entry-org">AIT AI Center</span>
+            </div>
+            <div class="entry-role">ML &amp; AI Research Assistant (Part-time)</div>
+            <div class="entry-meta">AIT, Pathum Thani, Thailand · August 2019 – December 2020</div>
+            <ul>
+                <li><strong>Action Recognition and Fall Detection:</strong> Developed a real-time activity recognition system using Long Short-Term Memory (LSTM) networks and Computer Vision to distinguish between high-velocity falls and routine activities (walking, sitting, standing, bending).</li>
+                <li><strong>Edge Deployment:</strong> Successfully deployed the model onto an embedded device while processing live streams from IP camera for prediction.</li>
+                <li><strong>Published Research:</strong> Co-authored and contributed technical methodology to a peer-reviewed paper.</li>
+            </ul>
+        </article>
+    </section>
+
+
+    <section id="education">
+        <h2>Education</h2>
+
+        <article class="entry">
+            <div class="entry-org">Asian Institute of Technology</div>
+            <div class="entry-role">M.Eng. in Computer Science</div>
+            <div class="entry-meta">Pathum Thani, Thailand · January 2018 – December 2020</div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-org">Sharda University</div>
+            <div class="entry-role">B.Tech. in Computer Science and Engineering</div>
+            <div class="entry-meta">Greater Noida, India · August 2012 – May 2016</div>
+        </article>
+    </section>
+
+    <section id="publications">
+        <h2>Publications</h2>
+        <ul class="pub-list">
+            <li>
+                <span class="pub-journal">Multimedia Tools and Applications</span><br>
+                Zereen, A.N., Gurung, A., Rajak, A. et al. “Video Analytic System for Activity Profiling, Fall Detection, and Unstable Motion Detection.” Multimedia Tools and Applications (2023).<br>
+                <a href="https://doi.org/10.1007/s11042-023-14993-y" target="_blank" rel="noopener noreferrer">doi:10.1007/s11042-023-14993-y</a>
+            </li>
+            <li>
+                <span class="pub-journal">NBTC Journal</span><br>
+                Zereen, A.N., Gurung, A., Rajak, A. et al. “Automatic Elderly Fall and Unstable Movement Detection System Using Framewise and LSTM Based Video Analytics on an Embedded Device.” NBTC Journal 5(5), 117–134 (2021).
+            </li>
+        </ul>
+    </section>
+
+
+</main>
+
+<footer>
+    &copy; <span id="year"></span> Anubinda Gurung · <a href="mailto:grg.jomle@gmail.com">grg.jomle@gmail.com</a>
+</footer>
+
 </body>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-
 </html>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
